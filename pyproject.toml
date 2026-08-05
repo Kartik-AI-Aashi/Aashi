@@ -1,0 +1,37 @@
+[build-system]
+requires = ["hatchling>=1.24"]
+build-backend = "hatchling.build"
+
+[project]
+name = "aashi"
+description = "Aashi — a modular, local-first, cloud-enhanced personal AI desktop companion for Windows."
+readme = "README.md"
+requires-python = ">=3.12"
+authors = [{ name = "Kartik Shau" }]
+dynamic = ["version"]
+dependencies = [
+    # Desktop UI framework (Qt 6). The only runtime dependency of UI-01.
+    "PySide6>=6.7,<7",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0",
+    "pytest-qt>=4.4",
+]
+
+[project.gui-scripts]
+# Installed launcher; on Windows this creates a console-free `aashi.exe`.
+aashi = "aashi.app:main"
+
+[tool.hatch.version]
+# Single source of truth for the version is aashi.__version__.
+path = "src/aashi/__init__.py"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/aashi"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+qt_api = "pyside6"
+addopts = "-ra"
