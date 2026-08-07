@@ -7,7 +7,8 @@ Startup sequence:
 3. Create per-user writable directories.
 4. Configure logging.
 5. Create and configure the ``QApplication``.
-6. Show the top-level window and run the Qt event loop.
+6. Create the theme manager and apply the active theme.
+7. Show the top-level window and run the Qt event loop.
 
 Steps 1-4 are Qt-free and exposed as :func:`create_context`, so tests and future
 headless subsystems can build an application context without starting Qt.
@@ -117,11 +118,22 @@ def run(argv: list[str] | None = None, environment: Environment | None = None) -
 
     application = create_application(argv)
 
-    # TEMPORARY (UI-01): proves the foundation works. A later UI module
-    # replaces this with the real Aashi window.
+    # UI-02A: the theme manager is created once here and passed explicitly. It
+    # is deliberately not a module-level singleton; when the Core service
+    # registry exists it will own this instance instead.
+    from aashi.ui.themes.manager import ThemeManager
+
+    theme_manager = ThemeManager(parent=application)
+    theme_manager.attach(application)
+
+    # TEMPORARY (UI-01/UI-02A): proves the foundation and the theme engine work.
+    # A later UI module replaces this with the real Aashi window.
     from aashi.ui.bootstrap import FoundationWindow
 
-    window = FoundationWindow(environment_name=str(context.environment))
+    window = FoundationWindow(
+        environment_name=str(context.environment),
+        theme_manager=theme_manager,
+    )
     window.show()
 
     _logger.debug("Entering Qt event loop.")
