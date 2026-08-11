@@ -64,6 +64,9 @@ class SemanticSpacing:
         gutter_breakpoint_px: Window width at which gutters shrink.
         inline_gap: Gap between an icon and its adjacent label.
         stack_gap: Default gap between stacked sibling elements.
+        chat_gap: Vertical gap between chat messages. Kept distinct from
+            :attr:`stack_gap` so the conversation view can breathe without
+            widening every other stacked-element gap in the interface.
     """
 
     control_padding_vertical: int
@@ -75,6 +78,7 @@ class SemanticSpacing:
     gutter_breakpoint_px: int
     inline_gap: int
     stack_gap: int
+    chat_gap: int
 
     def gutter_for_width(self, window_width_px: int) -> int:
         """Return the gutter appropriate to a window of ``window_width_px``."""
@@ -93,6 +97,7 @@ SPACING: Final[SemanticSpacing] = SemanticSpacing(
     gutter_breakpoint_px=1100,
     inline_gap=Space.SPACE_100,
     stack_gap=Space.SPACE_150,
+    chat_gap=Space.SPACE_200,
 )
 """The semantic spacing decisions taken by the approved specification."""
 

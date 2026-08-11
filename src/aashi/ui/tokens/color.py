@@ -286,7 +286,11 @@ class SurfaceColors:
     """Background colours, ordered from furthest back to closest to the user.
 
     The specification permits a maximum of four opaque layers; adding a fifth
-    is a design smell rather than a token gap.
+    is a design smell rather than a token gap. Two values deliberately go
+    beyond that ceiling: :attr:`glass_highlight` (a one-pixel line, not a
+    layer) and :attr:`user_bubble` (a UI-02C decision that introduces a sixth
+    opaque fill, because the accent-driven user bubble proved too heavy for
+    compact messages — see :mod:`aashi.ui.themes.definitions`).
 
     Attributes:
         canvas: The application backdrop.
@@ -295,6 +299,9 @@ class SurfaceColors:
         nested: Recessed surfaces inside a panel, such as input wells.
         glass: Translucent surface used with a backdrop blur.
         glass_highlight: One-pixel inner highlight along a glass surface's top.
+        user_bubble: Neutral fill for user chat bubbles. Distinct from the
+            accent-driven palette, so a message reads as belonging to the user
+            without shouting.
     """
 
     canvas: Color
@@ -303,6 +310,7 @@ class SurfaceColors:
     nested: Color
     glass: Color
     glass_highlight: Color
+    user_bubble: Color
 
 
 @dataclass(frozen=True, slots=True)

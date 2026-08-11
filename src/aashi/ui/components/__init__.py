@@ -1,11 +1,30 @@
 """Reusable visual components.
 
-Reserved for the Aashi component library — buttons, inputs, cards, lists and
-other widgets composed from design tokens and shared by every screen.
+The Aashi component library — buttons, panels, cards, inputs, lists and other
+widgets composed from design tokens and shared by every screen.
 
-Empty at UI-01 — this package is a boundary, not an implementation.
+Importing this package imports PySide6; the Qt-free value layers stay in
+``aashi.ui.tokens`` and ``aashi.ui.themes``.
 """
 
 from __future__ import annotations
 
-__all__: list[str] = []
+from aashi.ui.components.attachment_preview import AttachmentPreview
+from aashi.ui.components.button import AashiButton, ButtonVariant
+from aashi.ui.components.chat_bubble import ChatBubble, ChatRole
+from aashi.ui.components.header import AashiHeader
+from aashi.ui.components.input import AashiInput
+from aashi.ui.components.panel import AashiPanel, PanelBorder, PanelVariant
+
+__all__ = [
+    "AashiButton",
+    "AashiHeader",
+    "AashiInput",
+    "AashiPanel",
+    "AttachmentPreview",
+    "ButtonVariant",
+    "ChatBubble",
+    "ChatRole",
+    "PanelBorder",
+    "PanelVariant",
+]

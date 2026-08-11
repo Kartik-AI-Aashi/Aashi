@@ -78,6 +78,7 @@ def qss_variables(theme: Theme) -> Mapping[str, str]:
             "color.surface.nested": surface.nested.css,
             "color.surface.glass": surface.glass.css,
             "color.surface.glassHighlight": surface.glass_highlight.css,
+            "color.surface.userBubble": surface.user_bubble.css,
         }
     )
     text = palette.text

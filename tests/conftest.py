@@ -11,7 +11,6 @@ Two rules apply throughout:
 from __future__ import annotations
 
 import os
-import sys
 from collections.abc import Iterator
 from pathlib import Path
 
@@ -22,13 +21,17 @@ from aashi.paths import AashiPaths, resolve_paths
 
 
 def pytest_configure(config: pytest.Config) -> None:
-    """Select Qt's offscreen platform when no display is available.
+    """Run the GUI suite on Qt's offscreen platform for deterministic geometry.
 
-    Windows and macOS always have a display. On Linux CI there may be none, in
-    which case Qt must be told explicitly or widget creation aborts the process.
+    Widget pixel geometry is not reproducible on a real display: under DPI
+    scaling the Windows platform reports a different QLabel word-wrap sizeHint
+    than the offscreen backend (e.g. 450 px vs 948 px for the same text), which
+    shifts layout-derived widths and makes pixel assertions flaky. Headless
+    Linux additionally has no display at all. Forcing offscreen makes the whole
+    suite stable on every host; a developer can still opt into a real window by
+    setting ``QT_QPA_PLATFORM`` explicitly.
     """
-    if sys.platform.startswith("linux") and not os.environ.get("DISPLAY"):
-        os.environ.setdefault("QT_QPA_PLATFORM", "offscreen")
+    os.environ.setdefault("QT_QPA_PLATFORM", "offscreen")
 
 
 @pytest.fixture(autouse=True)

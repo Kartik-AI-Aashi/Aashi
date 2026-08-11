@@ -111,6 +111,12 @@ _DARK_PALETTE: Final[ColorPalette] = ColorPalette(
         nested=_hex("#22262F"),  # spec §2.1
         glass=Color.from_rgba(20, 22, 29, 0.72),  # spec §2.1
         glass_highlight=Color.from_rgba(255, 255, 255, 0.10),  # spec §2.1
+        # UI-02C decision: neutral fill for the user's own chat bubble. The
+        # specification's accent fill reads as a shout for compact messages, so
+        # the bubble steps off the canvas (#0B0D12) and the elevated surface
+        # (#1B1E27) instead of onto the accent. #F5F6FA on #2E333C measures
+        # ~12.6:1, well past WCAG AA for body text.
+        user_bubble=_hex("#2E333C"),
     ),
     text=TextColors(
         primary=_hex("#F5F6FA"),  # spec §2.4 — 18.00:1 on canvas
@@ -188,6 +194,10 @@ _LIGHT_PALETTE: Final[ColorPalette] = ColorPalette(
         # surface, so light mode defines the same 1px inner line as a faint dark
         # hairline. The line's job is to define the edge, not to catch light.
         glass_highlight=Color.from_rgba(0, 0, 0, 0.06),
+        # UI-02C decision: the light companion to the dark user bubble — a touch
+        # darker than the canvas (#F7F8FB) so the message recedes into a well.
+        # #14161D on #E9EBF0 exceeds 14:1, comfortably past AA.
+        user_bubble=_hex("#E9EBF0"),
     ),
     text=TextColors(
         primary=_hex("#14161D"),  # spec §2.5 — 17.01:1 on canvas
@@ -281,6 +291,10 @@ _HIGH_CONTRAST_PALETTE: Final[ColorPalette] = ColorPalette(
         nested=_HC_BLACK,
         glass=_HC_BLACK,
         glass_highlight=_HC_WHITE,
+        # High contrast collapses every surface onto the canvas; the bubble is
+        # told apart by the permanent outline the component draws in this mode,
+        # so its fill collapses too.
+        user_bubble=_HC_BLACK,
     ),
     text=TextColors(
         primary=_HC_WHITE,  # 21.00:1

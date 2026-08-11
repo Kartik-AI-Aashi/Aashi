@@ -25,6 +25,8 @@ from aashi.config import ConfigError, Environment, Settings, load_settings
 from aashi.constants import (
     APP_NAME,
     APP_VERSION,
+    BOOTSTRAP_WINDOW_MIN_HEIGHT,
+    BOOTSTRAP_WINDOW_MIN_WIDTH,
     EXIT_CONFIG_ERROR,
     ORGANIZATION_DOMAIN,
     ORGANIZATION_NAME,
@@ -126,14 +128,11 @@ def run(argv: list[str] | None = None, environment: Environment | None = None) -
     theme_manager = ThemeManager(parent=application)
     theme_manager.attach(application)
 
-    # TEMPORARY (UI-01/UI-02A): proves the foundation and the theme engine work.
-    # A later UI module replaces this with the real Aashi window.
-    from aashi.ui.bootstrap import FoundationWindow
+    from aashi.ui.windows.chat_window import AashiChatWindow
 
-    window = FoundationWindow(
-        environment_name=str(context.environment),
-        theme_manager=theme_manager,
-    )
+    window = AashiChatWindow(theme_manager)
+    window.setWindowTitle(APP_NAME)
+    window.setMinimumSize(BOOTSTRAP_WINDOW_MIN_WIDTH, BOOTSTRAP_WINDOW_MIN_HEIGHT)
     window.show()
 
     _logger.debug("Entering Qt event loop.")
