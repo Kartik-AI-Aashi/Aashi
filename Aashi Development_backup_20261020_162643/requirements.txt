@@ -1,0 +1,3 @@
+# Runtime installation of Aashi (editable).
+# The single source of truth for dependencies and versions is pyproject.toml.
+-e .

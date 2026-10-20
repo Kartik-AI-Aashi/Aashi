@@ -1,0 +1,9 @@
+# Packaged development defaults. Secrets do not belong in this file.
+
+[app]
+debug = true
+
+[logging]
+level = "DEBUG"
+console = true
+file = true

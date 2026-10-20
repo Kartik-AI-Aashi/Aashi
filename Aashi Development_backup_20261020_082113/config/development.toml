@@ -1,0 +1,16 @@
+# Aashi — development environment configuration.
+#
+# Loaded when AASHI_ENV is unset while running from source, or when
+# AASHI_ENV=development. Environment variables override these values.
+#
+# Never put API keys, tokens or other secrets in this file. Credentials are
+# handled by Aashi's secure credential system.
+
+[app]
+# Enables development-oriented behaviour across the application.
+debug = true
+
+[logging]
+level = "DEBUG"
+console = true
+file = true

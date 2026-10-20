@@ -1,0 +1,16 @@
+# Aashi — production environment configuration.
+#
+# Loaded when AASHI_ENV=production, and by default in frozen/packaged builds.
+# Environment variables override these values.
+#
+# Never put API keys, tokens or other secrets in this file. Credentials are
+# handled by Aashi's secure credential system.
+
+[app]
+debug = false
+
+[logging]
+level = "INFO"
+# Packaged Windows builds have no console attached; log to file only.
+console = false
+file = true

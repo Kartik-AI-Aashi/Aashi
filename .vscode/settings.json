@@ -1,0 +1,12 @@
+{
+    "chat.tools.terminal.autoApprove": {
+        "/^cd \"c:\\\\Users\\\\Kartik Shau\\\\OneDrive\\\\Desktop\\\\Aashi_emotion_update_v3\\\\Aashi Development\"; python run_dev\\.py$/": {
+            "approve": true,
+            "matchCommandLine": true
+        },
+        "/^python --version; python -c \"import sys; print\\(sys\\.executable\\)\"$/": {
+            "approve": true,
+            "matchCommandLine": true
+        }
+    }
+}

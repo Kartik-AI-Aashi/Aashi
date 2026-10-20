@@ -1,0 +1,20 @@
+﻿C:\Users\Kartik Shau\OneDrive\Desktop\Aashi_emotion_update_v3\Aashi Development\scripts\diagnose_ai_providers.py:3: This script never downloads a model and never prints ``OPENROUTER_API_KEY``.
+C:\Users\Kartik Shau\OneDrive\Desktop\Aashi_emotion_update_v3\Aashi Development\src\aashi\ui\services\local_ai.py:41: OLLAMA_URL: Final[str] = "http://localhost:11434/api/generate"
+C:\Users\Kartik Shau\OneDrive\Desktop\Aashi_emotion_update_v3\Aashi Development\src\aashi\ui\services\local_ai.py:50: _INTERNET_CHECK_URL: Final[str] = "https://dns.google/resolve?name=openrouter.ai"
+C:\Users\Kartik Shau\OneDrive\Desktop\Aashi_emotion_update_v3\Aashi Development\src\aashi\ui\services\local_ai.py:162: return "the local Ollama service is unavailable at http://localhost:11434."
+C:\Users\Kartik Shau\OneDrive\Desktop\Aashi_emotion_update_v3\Aashi Development\src\aashi\ui\services\local_ai.py:168: return "OpenRouter is not configured (OPENROUTER_API_KEY is missing)."
+C:\Users\Kartik Shau\OneDrive\Desktop\Aashi_emotion_update_v3\Aashi Development\src\aashi\ui\services\local_ai.py:186: if "missing api key" in message or "openrouter_api_key" in message:
+C:\Users\Kartik Shau\OneDrive\Desktop\Aashi_emotion_update_v3\Aashi Development\src\aashi\ui\services\local_ai.py:187: return "OpenRouter is not configured (OPENROUTER_API_KEY is missing)."
+C:\Users\Kartik Shau\OneDrive\Desktop\Aashi_emotion_update_v3\Aashi Development\src\aashi\ui\services\local_ai.py:189: "localhost:11434" in message
+C:\Users\Kartik Shau\OneDrive\Desktop\Aashi_emotion_update_v3\Aashi Development\src\aashi\ui\services\local_ai.py:193: return "the local Ollama service is unavailable at http://localhost:11434."
+C:\Users\Kartik Shau\OneDrive\Desktop\Aashi_emotion_update_v3\Aashi Development\src\aashi\ui\services\local_ai.py:211: "Start Ollama with the configured model or set OPENROUTER_API_KEY, "
+C:\Users\Kartik Shau\OneDrive\Desktop\Aashi_emotion_update_v3\Aashi Development\src\aashi\ui\services\local_ai.py:314: "Ollama is unavailable at http://localhost:11434.",
+C:\Users\Kartik Shau\OneDrive\Desktop\Aashi_emotion_update_v3\Aashi Development\src\aashi\ui\services\openrouter.py:33: OPENROUTER_URL: Final[str] = "https://openrouter.ai/api/v1/chat/completions"
+C:\Users\Kartik Shau\OneDrive\Desktop\Aashi_emotion_update_v3\Aashi Development\src\aashi\ui\services\openrouter.py:235: API_KEY_ENV: Final[str] = "OPENROUTER_API_KEY"
+C:\Users\Kartik Shau\OneDrive\Desktop\Aashi_emotion_update_v3\Aashi Development\src\aashi\ui\services\openrouter.py:279: ``OPENROUTER_API_KEY`` environment variable is used.
+C:\Users\Kartik Shau\OneDrive\Desktop\Aashi_emotion_update_v3\Aashi Development\src\aashi\ui\services\openrouter.py:293: "Missing API key. Set OPENROUTER_API_KEY environment variable.",
+C:\Users\Kartik Shau\OneDrive\Desktop\Aashi_emotion_update_v3\Aashi Development\src\aashi\ui\services\openrouter.py:326: ``OPENROUTER_API_KEY`` environment variable is used.
+C:\Users\Kartik Shau\OneDrive\Desktop\Aashi_emotion_update_v3\Aashi Development\src\aashi\ui\services\openrouter.py:340: "Missing API key. Set OPENROUTER_API_KEY environment variable.",
+C:\Users\Kartik Shau\OneDrive\Desktop\Aashi_emotion_update_v3\Aashi Development\tests\test_local_ai.py:257: "Missing API key. Set OPENROUTER_API_KEY environment variable."
+C:\Users\Kartik Shau\OneDrive\Desktop\Aashi_emotion_update_v3\Aashi Development\tests\test_local_ai.py:267: assert "OPENROUTER_API_KEY" in message
+C:\Users\Kartik Shau\OneDrive\Desktop\Aashi_emotion_update_v3\Aashi Development\pyproject.toml:15: # HTTP client for the OpenRouter AI adapter in aashi.ui.services.

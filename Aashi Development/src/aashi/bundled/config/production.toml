@@ -1,0 +1,9 @@
+# Packaged production defaults. Secrets do not belong in this file.
+
+[app]
+debug = false
+
+[logging]
+level = "INFO"
+console = false
+file = true
